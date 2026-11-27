@@ -1,0 +1,33 @@
+# Dias em que a bolsa de Nova York (NYSE) não abre, e dias de pregão curto (fecha às 13h de NY).
+# Usado para saber qual foi o "último fechamento de Nova York".
+# Fonte: calendário oficial da NYSE (nyse.com/markets/hours-calendars).
+# Confira e acrescente o ano seguinte todo mês de dezembro.
+
+fechados:
+  # 2026
+  - 2026-01-01  # Ano-Novo
+  - 2026-01-19  # Martin Luther King Jr.
+  - 2026-02-16  # Dia dos Presidentes
+  - 2026-04-03  # Sexta-feira Santa
+  - 2026-05-25  # Memorial Day
+  - 2026-06-19  # Juneteenth
+  - 2026-07-03  # Independência (4/7 cai no sábado)
+  - 2026-09-07  # Dia do Trabalho
+  - 2026-11-26  # Ação de Graças
+  - 2026-12-25  # Natal
+  # 2027
+  - 2027-01-01  # Ano-Novo
+  - 2027-01-18  # Martin Luther King Jr.
+  - 2027-02-15  # Dia dos Presidentes
+  - 2027-03-26  # Sexta-feira Santa
+  - 2027-05-31  # Memorial Day
+  - 2027-06-18  # Juneteenth (19/6 cai no sábado)
+  - 2027-07-05  # Independência (4/7 cai no domingo)
+  - 2027-09-06  # Dia do Trabalho
+  - 2027-11-25  # Ação de Graças
+  - 2027-12-24  # Natal (25/12 cai no sábado)
+
+pregao_curto:
+  - 2026-11-27  # dia seguinte à Ação de Graças
+  - 2026-12-24  # véspera de Natal
+  - 2027-11-26  # dia seguinte à Ação de Graças

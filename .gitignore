@@ -1,0 +1,8 @@
+# segredos locais (token do Telegram e chat_id): nunca vão para o GitHub
+.env
+
+# ambiente Python local
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
