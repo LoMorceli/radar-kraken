@@ -9,7 +9,7 @@ T0 = datetime(2026, 11, 27, 14, 0, tzinfo=timezone.utc)
 
 def res(disparou, id_="googl", regra_id="preco", sem_dados=False):
     r = {"id": id_, "ticker": id_.upper() + "x", "regra_id": regra_id, "tipo": "abaixo_de",
-         "disparou": disparou, "motivo": f"{id_} disparou. Não é recomendação de investimento."}
+         "preco_usd": 268.0, "disparou": disparou, "motivo": f"{id_} disparou. Não é recomendação de investimento."}
     if sem_dados:
         r["motivo_sem_dados"] = "sem dados"
     return r

@@ -10,6 +10,7 @@ import json
 import sys
 from datetime import timedelta
 
+from radar import sinais
 from radar.coletar import de_iso, iso
 from radar.telegram import ErroTelegram
 
@@ -71,6 +72,7 @@ def avisar(resultados, pasta, agora, enviar_fn=None):
             novo[chave(r)]["disparado"] = False  # tenta de novo na próxima execução
             continue
         novo[chave(r)]["ultimo_aviso_utc"] = iso(agora)
+        sinais.registrar(pasta, r, agora)  # dados/sinais.csv, para a taxa de acerto
         enviados.append(r["motivo"])
     mudou = novo != estado
     if mudou:
