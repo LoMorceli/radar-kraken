@@ -6,7 +6,8 @@ name: Radar Kraken
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    # Minutos 3, 8, 13... (fora dos minutos "redondos", quando o GitHub fica sobrecarregado e pula execuções)
+    - cron: "3-58/5 * * * *"
   workflow_dispatch:
     inputs:
       teste:
