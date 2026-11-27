@@ -9,7 +9,6 @@ from pathlib import Path
 
 from radar import kraken
 from radar.ativos import CRIPTO, XSTOCK, da_classe
-from radar.horario import ultimo_fechamento_ny
 
 PASTA = Path(__file__).resolve().parent.parent / "tests" / "fixtures"
 
@@ -20,22 +19,28 @@ def salvar(nome, dados):
     print("gravado", nome)
 
 
+def ohlc(par, classe, intervalo, ultimos=None):
+    dados = kraken._baixar("OHLC", kraken._params(classe, [par]) | {"interval": intervalo})
+    if ultimos:
+        for chave in dados["result"]:
+            if chave != "last":
+                dados["result"][chave] = dados["result"][chave][-ultimos:]
+    return dados
+
+
 def main():
+    agora = datetime.now(timezone.utc).replace(microsecond=0)
     for classe in (CRIPTO, XSTOCK):
         params = kraken._params(classe, [a["par"] for a in da_classe(classe)])
         if classe == CRIPTO:  # o /AssetPairs não lista xStocks
             salvar(f"assetpairs_{classe}.json", kraken._baixar("AssetPairs", params))
         salvar(f"ticker_{classe}.json", kraken._baixar("Ticker", params))
 
-    ohlc = kraken._baixar("OHLC", kraken._params(XSTOCK, ["NVDAx/USD"]) | {"interval": 60})
-    for chave in ohlc["result"]:
-        if chave != "last":
-            ohlc["result"][chave] = ohlc["result"][chave][-120:]  # últimas 120 horas bastam
-    salvar("ohlc60_nvdax.json", ohlc)
-
-    agora = datetime.now(timezone.utc)
-    salvar("gravado_em.json", {"gravado_em_utc": agora.isoformat(timespec="seconds"),
-                               "ultimo_fechamento_ny_utc": ultimo_fechamento_ny(agora).isoformat()})
+    salvar("ohlc60_nvdax.json", ohlc("NVDAx/USD", XSTOCK, 60, ultimos=120))  # fechamento de NY
+    salvar("ohlc60_xbtusd.json", ohlc("XBTUSD", CRIPTO, 60, ultimos=72))  # preço de 24h atrás
+    salvar("ohlc1440_xbtusd.json", ohlc("XBTUSD", CRIPTO, 1440))  # topos (720 dias)
+    salvar("ohlc1440_spyx.json", ohlc("SPYx/USD", XSTOCK, 1440))
+    salvar("gravado_em.json", {"gravado_em_utc": agora.isoformat()})
 
 
 if __name__ == "__main__":

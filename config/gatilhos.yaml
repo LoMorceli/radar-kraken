@@ -1,0 +1,69 @@
+# Gatilhos de preço do Radar Kraken, iguais aos do painel "Radar de Investimentos (Kraken)".
+# Aqui só ficam regras de NÚMERO. Gatilhos de notícia (fluxo dos ETFs, Fed, resultados)
+# continuam com a tarefa agendada do Claude.
+#
+# Tipos de regra:
+#   abaixo_de          dispara se o preço ficar abaixo de valor_usd
+#   ate_pct_acima_de   dispara se o preço ficar até pct% acima de referencia_usd (ou abaixo dela)
+#   pct_abaixo_topo    dispara se o preço estiver pct% ou mais abaixo da máxima de 12 meses
+#   variacao           dispara se a variação for de pct% ou mais, para cima ou para baixo
+#                      (cripto: em 24 horas; ações e ETFs: desde o fechamento de Nova York)
+#
+# "gatilho" é o texto que vai na mensagem, explicando a regra.
+# "id" identifica a regra para não repetir o mesmo aviso (pausa de 6 horas, Etapa 3).
+
+padroes:
+  cripto:
+    - id: variacao
+      tipo: variacao
+      pct: 7
+      gatilho: variação de 7% ou mais em 24 horas, para cima ou para baixo
+  xstock:
+    - id: variacao
+      tipo: variacao
+      pct: 5
+      gatilho: variação de 5% ou mais desde o fechamento de Nova York, para cima ou para baixo
+
+ativos:
+  nvda:
+    - id: preco
+      tipo: ate_pct_acima_de
+      referencia_usd: 125.53
+      referencia_desc: mínima de 20/11/2026
+      pct: 3
+      gatilho: perto da mínima sem notícia ruim nova
+  googl:
+    - id: preco
+      tipo: abaixo_de
+      valor_usd: 270
+      gatilho: abaixo de US$ 270 (mínima de 12 meses)
+  meta:
+    - id: preco
+      tipo: abaixo_de
+      valor_usd: 580
+      gatilho: abaixo de US$ 580 sem notícia ruim nova
+  msft:
+    - id: preco
+      tipo: abaixo_de
+      valor_usd: 475
+      gatilho: abaixo de US$ 475 (cerca de 15% abaixo da máxima) sem notícia ruim própria
+  aapl:
+    - id: preco
+      tipo: abaixo_de
+      valor_usd: 320
+      gatilho: abaixo de US$ 320 (cerca de 10% abaixo da máxima)
+  amzn:
+    - id: preco
+      tipo: abaixo_de
+      valor_usd: 245
+      gatilho: abaixo de US$ 245 sem nova notícia ruim da AWS
+  spx:
+    - id: preco
+      tipo: pct_abaixo_topo
+      pct: 10
+      gatilho: SPYx 10% ou mais abaixo da máxima de 12 meses
+  ndx:
+    - id: preco
+      tipo: pct_abaixo_topo
+      pct: 20
+      gatilho: QQQx 20% ou mais abaixo da máxima de 12 meses

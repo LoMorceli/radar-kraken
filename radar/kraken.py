@@ -4,6 +4,7 @@ Este módulo nunca usa os endpoints privados: o programa não compra, não vende
 e não mexe em dinheiro.
 """
 import time as _time
+from datetime import timedelta
 
 import requests
 
@@ -98,15 +99,29 @@ def buscar_precos():
     return precos, faltando
 
 
+def candles(par, classe, intervalo):
+    """Candles OHLC de um par: lista de [início (s), abertura, máxima, mínima, fechamento, ...].
+    `intervalo` em minutos (60 = 1 hora, 1440 = 1 dia). A Kraken devolve até 720."""
+    resultado = chamar("OHLC", _params(classe, [par]) | {"interval": intervalo})
+    for chave, lista in resultado.items():
+        if chave != "last":
+            return lista
+    return []
+
+
+def _candle_que_comeca(lista, inicio_utc):
+    alvo = int(inicio_utc.timestamp())
+    return next((c for c in lista if int(c[0]) == alvo), None)
+
+
 def fechamento_em(par, fechamento_utc):
     """Preço de uma xStock no fechamento de Nova York: o fechamento do candle de 1 hora
     que termina naquele horário. Devolve None se o candle não estiver na resposta."""
-    resultado = chamar("OHLC", _params(XSTOCK, [par]) | {"interval": 60})
-    inicio = int(fechamento_utc.timestamp()) - 3600
-    for chave, candles in resultado.items():
-        if chave == "last":
-            continue
-        for c in candles:
-            if int(c[0]) == inicio:
-                return float(c[4])
-    return None
+    c = _candle_que_comeca(candles(par, XSTOCK, 60), fechamento_utc - timedelta(hours=1))
+    return float(c[4]) if c else None
+
+
+def abertura_da_hora(par, classe, hora_utc):
+    """Preço de abertura do candle de 1 hora que começa em `hora_utc` (None se não houver)."""
+    c = _candle_que_comeca(candles(par, classe, 60), hora_utc)
+    return float(c[1]) if c else None
