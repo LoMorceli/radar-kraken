@@ -53,9 +53,9 @@ jobs:
         env:
           PUBLICAR_PRECOS: ${{ steps.radar.outputs.publicar_precos }}
         run: |
-          # precos.json muda a cada rodada: só vai para o repositório a cada 30 minutos
+          # precos.json e painel.json mudam a cada rodada: só vão para o repositório a cada 30 minutos
           if [ "$PUBLICAR_PRECOS" != "true" ]; then
-            git checkout -- dados/precos.json 2>/dev/null || true
+            git checkout -- dados/precos.json dados/painel.json 2>/dev/null || true
           fi
           git add dados/
           if git diff --cached --quiet; then

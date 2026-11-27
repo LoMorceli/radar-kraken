@@ -11,7 +11,7 @@ import os
 import sys
 from datetime import datetime, timedelta, timezone
 
-from radar import avisar, coletar, kraken, regras, telegram, topos
+from radar import avisar, coletar, kraken, painel, regras, telegram, topos
 
 PUBLICAR_PRECOS_A_CADA = timedelta(minutes=30)
 TEXTO_TESTE = ("Radar Kraken ligado. A partir de agora eu confiro os gatilhos de preço da Kraken "
@@ -61,6 +61,7 @@ def rodar(teste=False, agora=None, pasta=coletar.PASTA_DADOS):
     tops = topos.obter_topos(agora=agora, pasta=pasta)
     resultados = regras.avaliar(retrato, tops, regras.carregar_regras())
     enviados, estado_mudou = avisar.avisar(resultados, pasta, agora, enviar_fn)
+    painel.gravar(retrato, tops, resultados, pasta)  # dados/painel.json, lido pelo painel do claude.ai
 
     publicar = deve_publicar_precos(antes, agora)
     _saida_github("publicar_precos", "true" if publicar else "false")
