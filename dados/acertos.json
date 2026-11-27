@@ -1,0 +1,30 @@
+{
+ "calculado_em_utc": "2026-11-27T16:32:18Z",
+ "conta": "se tivesse comprado no preço do sinal",
+ "prazos_dias": [
+  7,
+  30,
+  90
+ ],
+ "resumo": {
+  "7": {
+   "com_resultado": 0,
+   "aguardando": 0,
+   "no_positivo": 0,
+   "media_pct": null
+  },
+  "30": {
+   "com_resultado": 0,
+   "aguardando": 0,
+   "no_positivo": 0,
+   "media_pct": null
+  },
+  "90": {
+   "com_resultado": 0,
+   "aguardando": 0,
+   "no_positivo": 0,
+   "media_pct": null
+  }
+ },
+ "sinais": []
+}
