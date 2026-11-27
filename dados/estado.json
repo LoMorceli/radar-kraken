@@ -1,0 +1,73 @@
+{
+ "regras": {
+  "aapl:preco": {
+   "disparado": false
+  },
+  "aapl:variacao": {
+   "disparado": false
+  },
+  "amd:variacao": {
+   "disparado": false
+  },
+  "amzn:preco": {
+   "disparado": false
+  },
+  "amzn:variacao": {
+   "disparado": false
+  },
+  "bnb:variacao": {
+   "disparado": false
+  },
+  "btc:variacao": {
+   "disparado": false
+  },
+  "eth:variacao": {
+   "disparado": false
+  },
+  "googl:preco": {
+   "disparado": false
+  },
+  "googl:variacao": {
+   "disparado": false
+  },
+  "meta:preco": {
+   "disparado": false
+  },
+  "meta:variacao": {
+   "disparado": false
+  },
+  "msft:preco": {
+   "disparado": false
+  },
+  "msft:variacao": {
+   "disparado": false
+  },
+  "ndx:preco": {
+   "disparado": false
+  },
+  "ndx:variacao": {
+   "disparado": false
+  },
+  "nvda:preco": {
+   "disparado": false
+  },
+  "nvda:variacao": {
+   "disparado": false
+  },
+  "sol:variacao": {
+   "disparado": false
+  },
+  "spx:preco": {
+   "disparado": false
+  },
+  "spx:variacao": {
+   "disparado": false
+  },
+  "tsla:variacao": {
+   "disparado": false
+  },
+  "xrp:variacao": {
+   "disparado": false
+  }
+ }
+}
