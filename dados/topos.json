@@ -1,6 +1,6 @@
 {
- "dia_utc": "2026-11-27",
- "calculado_em_utc": "2026-11-27T13:56:39Z",
+ "dia_utc": "2026-11-28",
+ "calculado_em_utc": "2026-11-28T00:09:05Z",
  "fonte": "Kraken (API pública), candles diários",
  "ativos": {
   "btc": {
@@ -8,7 +8,7 @@
    "max_12m_data": "2026-01-14",
    "max_historico_usd": 126198.1,
    "max_historico_data": "2025-10-06",
-   "historico_desde": "2024-12-07",
+   "historico_desde": "2024-12-08",
    "dias_de_historico": 721
   },
   "eth": {
@@ -16,7 +16,7 @@
    "max_12m_data": "2025-12-10",
    "max_historico_usd": 4956.01,
    "max_historico_data": "2025-08-24",
-   "historico_desde": "2024-12-07",
+   "historico_desde": "2024-12-08",
    "dias_de_historico": 721
   },
   "sol": {
@@ -24,7 +24,7 @@
    "max_12m_data": "2026-01-13",
    "max_historico_usd": 296.0,
    "max_historico_data": "2025-01-19",
-   "historico_desde": "2024-12-07",
+   "historico_desde": "2024-12-08",
    "dias_de_historico": 721
   },
   "xrp": {
@@ -32,7 +32,7 @@
    "max_12m_data": "2026-01-06",
    "max_historico_usd": 3.6645,
    "max_historico_data": "2025-07-18",
-   "historico_desde": "2024-12-07",
+   "historico_desde": "2024-12-08",
    "dias_de_historico": 721
   },
   "bnb": {
@@ -41,7 +41,7 @@
    "max_historico_usd": 1375.0,
    "max_historico_data": "2025-10-13",
    "historico_desde": "2025-04-22",
-   "dias_de_historico": 585
+   "dias_de_historico": 586
   },
   "nvda": {
    "max_12m_usd": 243.23,
@@ -49,7 +49,7 @@
    "max_historico_usd": 243.23,
    "max_historico_data": "2026-10-06",
    "historico_desde": "2025-08-12",
-   "dias_de_historico": 473
+   "dias_de_historico": 474
   },
   "amd": {
    "max_12m_usd": 657.25,
@@ -57,7 +57,7 @@
    "max_historico_usd": 657.25,
    "max_historico_data": "2026-10-06",
    "historico_desde": "2026-01-16",
-   "dias_de_historico": 316
+   "dias_de_historico": 317
   },
   "googl": {
    "max_12m_usd": 407.86,
@@ -65,7 +65,7 @@
    "max_historico_usd": 407.86,
    "max_historico_data": "2026-05-18",
    "historico_desde": "2025-08-14",
-   "dias_de_historico": 471
+   "dias_de_historico": 472
   },
   "meta": {
    "max_12m_usd": 779.99,
@@ -73,7 +73,7 @@
    "max_historico_usd": 784.34,
    "max_historico_data": "2025-09-18",
    "historico_desde": "2025-08-27",
-   "dias_de_historico": 458
+   "dias_de_historico": 459
   },
   "msft": {
    "max_12m_usd": 566.16,
@@ -81,7 +81,7 @@
    "max_historico_usd": 566.16,
    "max_historico_data": "2026-10-28",
    "historico_desde": "2025-08-27",
-   "dias_de_historico": 458
+   "dias_de_historico": 459
   },
   "aapl": {
    "max_12m_usd": 360.65,
@@ -89,7 +89,7 @@
    "max_historico_usd": 360.65,
    "max_historico_data": "2026-11-15",
    "historico_desde": "2025-08-14",
-   "dias_de_historico": 471
+   "dias_de_historico": 472
   },
   "amzn": {
    "max_12m_usd": 286.41,
@@ -97,7 +97,7 @@
    "max_historico_usd": 286.41,
    "max_historico_data": "2026-08-03",
    "historico_desde": "2025-09-02",
-   "dias_de_historico": 452
+   "dias_de_historico": 453
   },
   "tsla": {
    "max_12m_usd": 499.76,
@@ -105,7 +105,7 @@
    "max_historico_usd": 499.76,
    "max_historico_data": "2025-12-23",
    "historico_desde": "2025-08-12",
-   "dias_de_historico": 473
+   "dias_de_historico": 474
   },
   "spx": {
    "max_12m_usd": 781.78,
@@ -113,7 +113,7 @@
    "max_historico_usd": 781.78,
    "max_historico_data": "2026-10-12",
    "historico_desde": "2025-08-14",
-   "dias_de_historico": 471
+   "dias_de_historico": 472
   },
   "ndx": {
    "max_12m_usd": 762.8,
@@ -121,7 +121,7 @@
    "max_historico_usd": 762.8,
    "max_historico_data": "2026-10-06",
    "historico_desde": "2025-09-02",
-   "dias_de_historico": 452
+   "dias_de_historico": 453
   }
  }
 }
